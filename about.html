@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us - SmartChoice</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .about-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 32px 18px;
+            background: #fafbfc;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .about-container h1 {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 18px;
+            color: #2563eb;
+        }
+        .about-container p {
+            font-size: 1.1em;
+            color: #333;
+            margin-bottom: 18px;
+            line-height: 1.7;
+        }
+        .about-container ul {
+            margin: 0 0 18px 18px;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">SmartChoice</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for anything">
+            <button>🔍</button>
+        </div>
+        <button id="menu-toggle" class="menu-toggle" aria-label="Open menu">
+            <img src="navbar.png" alt="Menu" width="32" height="32">
+        </button>
+        <nav id="main-nav">
+            <a href="index.html">Home</a>
+            <a href="brand.html">Products</a>
+            <a href="about.html">About Us</a>
+            <a href="brand.html">Brand</a>
+            <a href="#">Login</a>
+            <a href="cart.html" class="cart">🛒</a>
+        </nav>
+    </header>
+    
+    <section style="background:#232323; color:#fff; margin:0; padding:0; border-radius:0 0 12px 12px;">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:32px;max-width:1400px;margin:0 auto;padding:36px 18px 24px 18px;">
+            <!-- Box 1: Logo & About -->
+            <div style="flex:2;min-width:260px;">
+                <p style="color:#fff;font-size:1.08em;margin:0 0 12px 0;">
+                    <b>SmartChoice Phone Shop</b> offers Sales | Buy | Installment for all kinds of new and used phones in Cambodia.
+                </p>
+                <ul>
+                    <li>Comprehensive product listings for all top smartphone brands.</li>
+                    <li>Easy comparison of features, prices, and specifications.</li>
+                    <li>Responsive design for a seamless experience on any device.</li>
+                    <li>Secure and convenient shopping with a user-friendly cart.</li>
+                    <li>Up-to-date information on the newest models and best deals.</li>
+                </ul>
+            </div>
+            <!-- Box 2: Direct Contact -->
+            <div style="flex:1;min-width:200px;">
+                <h3 style="color:#fff;font-size:1.15em;margin-bottom:12px;">Direct Contact</h3>
+                <ul style="list-style:none;padding:0;margin:0 0 12px 0;line-height:1.7;">
+                    <li>📞 (+855) 097 572 59 08</li>
+                    <li>📞 (+855) 093 610 886</li>
+                    <li>✉️ support@smartchoice.com</li>
+                    <li>✈️ @smartchoicephone</li>
+                </ul>
+            </div>
+            <!-- Box 3: Social & Policy -->
+            <div style="flex:1;min-width:200px;">
+                <h3 style="color:#fff;font-size:1.15em;margin-bottom:12px;">Find Us on Social</h3>
+                <div style="font-size:1.7em;margin-bottom:10px;display:flex;gap:10px;">
+                    <a href="#" style="display:inline-block;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png" alt="Facebook" style="width:32px;height:32px;">
+                    </a>
+                    <a href="#" style="display:inline-block;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" style="width:32px;height:32px;">
+                    </a>
+                    <!-- Add more social icons as needed -->
+                </div>
+                <div style="margin-bottom:10px;">
+                    <a href="about.html" style="color:#ffe600;text-decoration:none;">About Us</a>
+                </div>
+                <div>
+                    <a href="#" style="color:#fff;text-decoration:none;">PRIVACY POLICY</a><br>
+                    <a href="#" style="color:#fff;text-decoration:none;">TERMS AND CONDITIONS</a>
+                </div>
+            </div>
+            <!-- Box 4: Location & QR -->
+            <div style="flex:1.5;min-width:240px;">
+                <h3 style="color:#fff;font-size:1.15em;margin-bottom:12px;">Our Shop Location</h3>
+                <div style="font-size:1em;margin-bottom:10px;">
+                 Sangkat Central, Khan Daun Penh, Phnom Penh.
+                </div>
+                <div style="margin-bottom:10px;">
+                    <a href="#" style="color:#ffe600;text-decoration:none;">🗺️ Open Google Map</a>
+                </div>
+                <div style="display:flex;gap:18px;">
+                    <div style="text-align:center;">
+                        <img src="https://cdn.pixabay.com/photo/2021/12/27/10/50/telegram-icon-6896828_960_720.png" alt="Telegram" style="width:90px;height:90px;">
+                        <div style="font-size:0.95em;color:#fff;">Telegram</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <img src="https://avatars.githubusercontent.com/u/3717923?s=280&v=4" alt="Google Map" style="width:90px;height:90px;">
+                        <div style="font-size:0.95em;color:#fff;">Google Map</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="nav-overlay"></div>
+    <script src="menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Cart - SmartChoice</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Optional: style for cart items */
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            border-bottom: 1px solid #eee;
+            padding: 12px 0;
+        }
+        .cart-item img {
+            width: 60px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 6px;
+            background: #fafafa;
+        }
+        .cart-item-details {
+            flex: 1;
+        }
+        .cart-item-title {
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        .cart-item-desc {
+            font-size: 0.95em;
+            color: #555;
+        }
+        .cart-item-price {
+            color: #ff6600;
+            font-weight: bold;
+            margin-left: 12px;
+        }
+        .cart-empty {
+            color: #888;
+            text-align: center;
+            margin: 32px 0;
+        }
+        /* Mobile menu styles */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        #main-nav {
+            display: flex;
+            gap: 16px;
+        }
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            #main-nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: #fff;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                width: 200px;
+                z-index: 1000;
+            }
+            #main-nav a {
+                padding: 12px 16px;
+                border-bottom: 1px solid #eee;
+            }
+            #main-nav.show {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">SmartChoice</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for anything">
+            <button>🔍</button>
+        </div>
+        <button id="menu-toggle" class="menu-toggle" aria-label="Open menu">
+            <img src="navbar.png" alt="Menu" width="32" height="32">
+        </button>
+        <nav id="main-nav">
+            <a href="index.html">Home</a>
+            <a href="more-products.html">Products</a>
+            <a href="about.html">About Us</a>
+            <a href="brand.html">Brand</a>
+            <a href="#">Login</a>
+            <a href="cart.html" class="cart">🛒</a>
+        </nav>
+    </header>
+    <section class="products">
+        <h4>Your Cart</h4>
+        <div id="cart-items">
+            <p class="cart-empty">Your cart is empty.</p>
+        </div>
+        <div id="cart-actions" style="text-align:right; margin-top:24px; display:none;">
+            <button id="cart-buy-btn" style="background:#2563eb;color:#fff;border:none;padding:10px 28px;border-radius:7px;font-weight:bold;cursor:pointer;">Buy</button>
+            <button id="cart-cancel-btn" style="background:#eee;color:#222;border:none;padding:10px 28px;border-radius:7px;font-weight:bold;cursor:pointer;margin-left:12px;">Cancel All</button>
+            <button id="cart-remove-selected-btn" style="background:#ffdddd;color:#c00;border:none;padding:10px 28px;border-radius:7px;font-weight:bold;cursor:pointer;margin-left:12px;display:none;">Remove Selected</button>
+        </div>
+    </section>
+    <script>
+    // Simple cart storage using localStorage
+    function renderCart() {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+        const cartDiv = document.getElementById('cart-items');
+        const actionsDiv = document.getElementById('cart-actions');
+        const removeBtn = document.getElementById('cart-remove-selected-btn');
+        cartDiv.innerHTML = '';
+        if (!cartItems.length) {
+            cartDiv.innerHTML = '<p class="cart-empty">Your cart is empty.</p>';
+            actionsDiv.style.display = 'none';
+            return;
+        }
+        cartItems.forEach((item, idx) => {
+            const div = document.createElement('div');
+            div.className = 'cart-item';
+            div.innerHTML = `
+                <input type="checkbox" class="cart-remove-checkbox" data-idx="${idx}" style="margin-right:10px;">
+                <img src="${item.img}" alt="${item.name}">
+                <div class="cart-item-details">
+                    <div class="cart-item-title">${item.name}</div>
+                    <div class="cart-item-desc">${item.desc || ''}</div>
+                </div>
+                <div class="cart-item-price">${item.price || ''}</div>
+            `;
+            cartDiv.appendChild(div);
+        });
+        actionsDiv.style.display = 'block';
+        removeBtn.style.display = 'inline-block';
+
+        // Enable/disable Remove Selected button
+        updateRemoveSelectedBtn();
+        document.querySelectorAll('.cart-remove-checkbox').forEach(cb => {
+            cb.addEventListener('change', updateRemoveSelectedBtn);
+        });
+    }
+
+    function updateRemoveSelectedBtn() {
+        const removeBtn = document.getElementById('cart-remove-selected-btn');
+        const checked = document.querySelectorAll('.cart-remove-checkbox:checked').length;
+        removeBtn.disabled = checked === 0;
+    }
+
+    renderCart();
+
+    /**
+     * onclick for "Buy" button: remove all items from cart and show message
+     */
+    document.getElementById('cart-buy-btn').onclick = function() {
+        alert('Thank you for your purchase!');
+        localStorage.removeItem('cartItems');
+        renderCart();
+    };
+    document.getElementById('cart-cancel-btn').onclick = function() {
+        /**
+         * onclick for "Cancel All" button: remove all items from cart and show message
+         */
+        if (confirm('Remove all items from cart?')) {
+            localStorage.removeItem('cartItems');
+            renderCart();
+        }
+    };
+    document.getElementById('cart-remove-selected-btn').onclick = function() {
+        let cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+        const checkedBoxes = document.querySelectorAll('.cart-remove-checkbox:checked');
+        const idxsToRemove = Array.from(checkedBoxes).map(cb => parseInt(cb.getAttribute('data-idx')));
+        // Remove from end to start to avoid index shift
+        idxsToRemove.sort((a, b) => b - a).forEach(idx => {
+            cartItems.splice(idx, 1);
+        });
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        renderCart();
+    };
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mainNav = document.getElementById('main-nav');
+    menuToggle.onclick = function() {
+        mainNav.classList.toggle('show');
+    };
+    </script>
+    <div class="nav-overlay"></div>
+    <script src="menu.js"></script>
+</body>
+</html>

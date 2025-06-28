@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartChoice</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #fff;
+        }
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">SmartChoice</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for anything">
+            <button>🔍</button>
+        </div>
+        <button id="menu-toggle" class="menu-toggle" aria-label="Open menu">
+            <img src="navbar.png" alt="Menu" width="32" height="32">
+        </button>
+        <nav id="main-nav">
+            <button id="menu-close" class="menu-close" aria-label="Close menu" style="display:none;position:absolute;top:10px;right:10px;background:none;border:none;font-size:2em;color:#2563eb;cursor:pointer;z-index:1200;">&times;</button>
+            <a href="index.html">Home</a>
+            <a href="more-products.html">Products</a>
+            <a href="about.html">About Us</a>
+            <a href="brand.html">Brand</a>
+            <a href="#">Login</a>
+            <a href="cart.html" class="cart">🛒</a>
+        </nav>
+    </header>
+   
+    
+<section class="intro">
+    <div class="intro-media-carousel" id="carousel">
+        <button class="carousel-btn left" aria-label="Previous">&#8592;</button>
+        <div class="carousel-track" id="carousel-track">
+            <div>
+                <img src="Samsung/galaxy-s25-ultra-features-poster.jpg" alt="Samsung Galaxy S25 Ultra">
+                <div style="position:absolute;left:32px;bottom:32px;color:#fff;text-shadow:0 2px 8px #000;font-size:2em;font-weight:bold;">
+                    Galaxy S25 Ultra<br><span style="font-size:1em;font-weight:400;">Life opens up with Galaxy AI.</span>
+                </div>
+            </div>
+            <div>
+                <img src="/Iphone/banner.jpg" alt="Apple iPhone 16 Series">
+                <div style="position:absolute;left:32px;bottom:32px;color:#fff;text-shadow:0 2px 8px #000;font-size:2em;font-weight:bold;">
+                    iPhone 16 Series<br><span style="font-size:1em;font-weight:400;">Designed to be loved.</span>
+                </div>
+            </div>
+            <div>
+                <img src="google-pixel-9-baner.avif" alt="Google Pixel 9 Pro">
+                <div style="position:absolute;left:32px;bottom:32px;color:#fff;text-shadow:0 2px 8px #000;font-size:2em;font-weight:bold;">
+                    Pixel 9 Pro<br><span style="font-size:1em;font-weight:400;">Choose the Pixel you’ll love.</span>
+                </div>
+            </div>
+            <div>
+                <img src="Oppo/oppo-baner.png" alt="Oppo Find X8 Pro">
+                <div style="position:absolute;left:32px;bottom:32px;color:#fff;text-shadow:0 2px 8px #000;font-size:2em;font-weight:bold;">
+                    Oppo Find X8 Pro<br><span style="font-size:1em;font-weight:400;">Flagship Camera. Flagship Power.</span>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-btn right" aria-label="Next">&#8594;</button>
+        <div class="carousel-indicators">
+            <span class="carousel-dot" data-idx="0"></span>
+            <span class="carousel-dot" data-idx="1"></span>
+            <span class="carousel-dot" data-idx="2"></span>
+            <span class="carousel-dot" data-idx="3"></span>
+        </div>
+    </div>
+</section>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    let currentSlide = 0;
+    const totalSlides = 4;
+    const track = document.getElementById('carousel-track');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const leftBtn = document.querySelector('.carousel-btn.left');
+    const rightBtn = document.querySelector('.carousel-btn.right');
+    const carousel = document.getElementById('carousel');
+    let carouselInterval;
+
+    function updateCarousel() {
+        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentSlide);
+        });
+    }
+
+    function showSlide(idx) {
+        currentSlide = (idx + totalSlides) % totalSlides;
+        updateCarousel();
+    }
+
+    function nextSlide() {
+        showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+        showSlide(currentSlide - 1);
+    }
+
+    leftBtn.addEventListener('click', prevSlide);
+    rightBtn.addEventListener('click', nextSlide);
+
+    dots.forEach(dot => {
+        dot.addEventListener('click', () => showSlide(Number(dot.dataset.idx)));
+    });
+
+    function startAuto() {
+        carouselInterval = setInterval(nextSlide, 6000);
+    }
+    function stopAuto() {
+        clearInterval(carouselInterval);
+    }
+
+    carousel.addEventListener('mouseenter', stopAuto);
+    carousel.addEventListener('mouseleave', startAuto);
+
+    updateCarousel();
+    startAuto();
+});
+</script>
+    <section class="brands">
+        <h4>Brand</h4>
+        <div class="brand-logos">
+            <!-- Use placeholder images or icons -->
+            <a href="brand-apple.html"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple"></a>
+            <a href="brand-oppo.html"><img src="https://www.logo.wine/a/logo/Oppo/Oppo-Logo.wine.svg" alt="Oppo"></a>
+            <a href="brand-vivo.html"><img src="https://1000logos.net/wp-content/uploads/2022/02/Vivo-Logo.png" alt="Vivo"></a>
+            <a href="brand-samsung.html"><img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung"></a>
+            <a href="brand-oneplus.html"><img src="https://1000logos.net/wp-content/uploads/2022/11/OnePlus-Logo.jpg" alt="OnePlus"></a>
+            <a href="brand-xiaomi.html"><img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Xiaomi_logo.svg" alt="Xiaomi"></a>
+            <a href="brand-huawei.html"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Huawei_Standard_logo.svg/1008px-Huawei_Standard_logo.svg.png" alt="Huawei"></a>
+            <a href="brand-pixel.html"><img src="Google-pixel-wordmark-logo.jpg" alt="Pixel"></a>
+            <a href="#"><img src="https://i.pinimg.com/736x/2e/6c/64/2e6c64698fde3db3119846d81d5e4543.jpg" alt="RedMagic"></a>
+            <a href="brand-asus.html"><img src="https://assets.gadgets360cdn.com/pricee/assets/brand/og_asus_logo.png" alt="Asus"></a>
+            <a href="brand-sony.html"><img src="https://download.logo.wine/logo/Sony_Mobile/Sony_Mobile-Logo.wine.png" alt="Sony"></a>
+            <a href="brand-realme.html"><img src="https://www.rvsolutions.in/wp-content/uploads/2022/06/realme-logo-1.png" alt="Realme"></a>
+            <a href="brand-honor.html"><img src="https://download.logo.wine/logo/Honor_(brand)/Honor_(brand)-Logo.wine.png" alt="Honor"></a>
+            <a href="brand-infinix.html"><img src="https://seeklogo.com/images/I/infinix-logo-62FA1B616A-seeklogo.com.png" alt="Tecno"></a>
+            <a href="brand-tecno.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSmmsbghqHUmjMV6CDLA7TGA-BmRqoSZm5eQ&s" alt="Tecno"></a>
+        </div>
+    </section>
+    <section class="products">
+        <h4>featured products</h4>
+        <div class="product-list" id="product-list">
+        <!-- Cards will be rendered by JS, each card will be clickable to show details -->
+    </div>
+    <div class="view-more"><a href="more-products.html">view more</a></div>
+    </section>
+    <!-- Product Detail Modal -->
+    <div id="product-modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeProductDetail()">&times;</span>
+            <div class="product-detail-container" id="modal-detail-content">
+                <!-- JS will fill product detail here -->
+            </div>
+        </div>
+    </div>
+    <section class="featured-categories">
+        <div class="featured-grid custom-featured-grid">
+            <div class="featured-item large samsung-feature" 
+    onclick="window.location.href='brand-samsung.html'"
+    style="background-image:url('Samsung/galaxy-s25-ultra-features-poster.jpg'); background-size:cover; background-position:center;">
+                <div class="featured-text" style="background:none; border-radius:14px 0 0 14px;">
+                    <h3>Samsung Galaxy</h3>
+                    <p>Life opens up with Galaxy AI.</p>
+                    <button onclick="window.location.href='product-samsung-galaxy.html'" class="shop-btn blue-btn">shop now</button>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung Logo" class="brand-logo">
+                </div>
+            </div>
+            <div class="featured-item large apple-feature" 
+    onclick="window.location.href='brand-apple.html'"
+    style="background-image:url('Iphone/banner.jpg'); background-size:cover; background-position:center;">
+                <div class="featured-text" style="background:none; border-radius:14px 0 0 14px;">
+                    <h3>Apple iPhone</h3>
+                    <p>Designed to be loved.</p>
+                    <button onclick="window.location.href='product-apple-iphone.html'" class="shop-btn blue-btn">shop now</button>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple Logo" class="brand-logo">
+                </div>
+            </div>
+            <div class="featured-item pixel-feature" 
+    onclick="window.location.href='brand-pixel.html'"
+    style="background-image:url('pixel\ Whats_New.png'); background-size:cover; background-position:center;">
+                <div class="featured-text" style="background:none; border-radius:14px 0 0 14px;">
+                    <h3>Google Pixel</h3>
+                    <p>Choose the Pixel you’ll love.</p>
+                    <button class="shop-btn blue-btn">shop now</button>
+                    <img src="Google__G__logo.svg.png" alt="Google Logo" class="brand-logo">
+                </div>
+            </div>
+            <div class="featured-item oppo-feature" 
+    onclick="window.location.href='brand-oppo.html'"
+    style="background-image:  url('oppobanner.jpeg'); background-size: cover; background-position: center;">
+                <div class="featured-text" style="background:none; border-radius:14px 0 0 14px;">
+                    <h3>Oppo Find X8 Pro</h3>
+                    <button onclick="window.location.href='product-oppo-find-x8-pro.html'" class="shop-btn blue-btn">shop now</button>
+                    <img src="Oppo/Oppo-Logo.wine.svg" alt="Oppo Logo" class="brand-logo">
+                </div>
+            </div>
+            <div class="featured-item dark allbrands-feature" 
+    onclick="window.location.href='brand.html'"
+    style="background-image:url('https://www.businessmobiles.com/wp-content/uploads/2025/03/Best-phones-2025-banner.webp.webp'); background-size:cover; background-position:center;">
+                <div class="featured-text" style="background:none; border-radius:14px 0 0 14px;">
+                    <h3>All brands</h3>
+                    <button class="shop-btn yellow-btn" onclick="window.location.href='brand.html'">shop now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+        <section style="background:#232323; color:#fff; margin:0; padding:0; border-radius:0 0 12px 12px;">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:32px;max-width:1400px;margin:0 auto;padding:36px 18px 24px 18px;">
+            <!-- Box 1: Logo & About -->
+            <div style="flex:2;min-width:260px;">
+                <p style="color:#fff;font-size:1.08em;margin:0 0 12px 0;">
+                    <b>SmartChoice Phone Shop</b> offers Sales | Buy | Installment for all kinds of new and used phones in Cambodia.
+                </p>
+                <ul>
+                    <li>Comprehensive product listings for all top smartphone brands.</li>
+                    <li>Easy comparison of features, prices, and specifications.</li>
+                    <li>Responsive design for a seamless experience on any device.</li>
+                    <li>Secure and convenient shopping with a user-friendly cart.</li>
+                    <li>Up-to-date information on the newest models and best deals.</li>
+                </ul>
+            </div>
+            <!-- Box 2: Direct Contact -->
+            <div style="flex:1;min-width:200px;">
+                <h3 style="color:#fff;font-size:1.15em;margin-bottom:12px;">Direct Contact</h3>
+                <ul style="list-style:none;padding:0;margin:0 0 12px 0;line-height:1.7;">
+                    <li>📞 (+855) 097 572 59 08</li>
+                    <li>📞 (+855) 093 610 886</li>
+                    <li>✉️ support@smartchoice.com</li>
+                    <li>✈️ @smartchoicephone</li>
+                </ul>
+            </div>
+            <!-- Box 3: Social & Policy -->
+            <div style="flex:1;min-width:200px;">
+                <h3 style="color:#fff;font-size:1.15em;margin-bottom:12px;">Find Us on Social</h3>
+                <div style="font-size:1.7em;margin-bottom:10px;display:flex;gap:10px;">
+                    <a href="#" style="display:inline-block;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png" alt="Facebook" style="width:32px;height:32px;">
+                    </a>
+                    <a href="#" style="display:inline-block;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" style="width:32px;height:32px;">
+                    </a>
+                    <!-- Add more social icons as needed -->
+                </div>
+                <div style="margin-bottom:10px;">
+                    <a href="about.html" style="color:#ffe600;text-decoration:none;">About Us</a>
+                </div>
+                <div>
+                    <a href="#" style="color:#fff;text-decoration:none;">PRIVACY POLICY</a><br>
+                    <a href="#" style="color:#fff;text-decoration:none;">TERMS AND CONDITIONS</a>
+                </div>
+            </div>
+            <!-- Box 4: Location & QR -->
+            <div style="flex:1.5;min-width:240px;">
+                <h3 style="color:#fff;font-size:1.15em;margin-bottom:12px;">Our Shop Location</h3>
+                <div style="font-size:1em;margin-bottom:10px;">
+                 Sangkat Central, Khan Daun Penh, Phnom Penh.
+                </div>
+                <div style="margin-bottom:10px;">
+                    <a href="#" style="color:#ffe600;text-decoration:none;">🗺️ Open Google Map</a>
+                </div>
+                <div style="display:flex;gap:18px;">
+                    <div style="text-align:center;">
+                        <img src="https://cdn.pixabay.com/photo/2021/12/27/10/50/telegram-icon-6896828_960_720.png" alt="Telegram" style="width:90px;height:90px;">
+                        <div style="font-size:0.95em;color:#fff;">Telegram</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <img src="https://avatars.githubusercontent.com/u/3717923?s=280&v=4" alt="Google Map" style="width:90px;height:90px;">
+                        <div style="font-size:0.95em;color:#fff;">Google Map</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="nav-overlay"></div>
+    <script src="menu.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

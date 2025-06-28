@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Brands - SmartChoice</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(135deg, #f7f9fc 60%, #e0e7ff 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 32px;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #1e40af;
+            letter-spacing: -0.02em;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #1e40af;
+            font-weight: 600;
+            font-size: 1em;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background 0.2s, color 0.2s;
+        }
+        nav a:hover {
+            background: #e0e7ff;
+            color: #1e3a8a;
+        }
+        .cart {
+            font-size: 1.5em;
+            padding: 8px;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 1.8em;
+            cursor: pointer;
+            color: #1e40af;
+            padding: 8px;
+        }
+        .brand-header {
+            text-align: center;
+            margin: 48px 0 12px 0;
+            font-size: 2.5em;
+            font-weight: 800;
+            color: #1e3a8a;
+            letter-spacing: -0.01em;
+            text-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+        }
+        .brand-subheader {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #3b82f6;
+            font-size: 1.25em;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+        }
+        .custom-featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 32px;
+            margin: 40px 0 56px 0;
+            padding: 0 24px;
+            max-width: 1440px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .featured-item {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(37, 99, 235, 0.12);
+            min-height: 360px;
+            display: flex;
+            align-items: flex-end;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            background: #fff;
+        }
+        .featured-item:hover {
+            transform: translateY(-12px) scale(1.04);
+            box-shadow: 0 16px 48px rgba(37, 99, 235, 0.2);
+        }
+        .featured-text {
+          
+            padding: 32px 24px 24px 24px;
+            border-radius: 0 0 24px 24px;
+            width: 100%;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 2;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            box-shadow: 0 2px 12px rgba(37, 99, 235, 0.06);
+            transition: background 0.3s ease;
+        }
+        .featured-item.dark .featured-text {
+            background: rgba(17, 24, 39, 0.95);
+            color: #fef08a;
+        }
+        .featured-text h3 {
+            font-size: 1.75em;
+            font-weight: 700;
+            margin: 0 0 12px 0;
+            color: #111827;
+            letter-spacing: -0.01em;
+        }
+        .featured-item.dark .featured-text h3 {
+            color: #fef08a;
+        }
+        .featured-text p {
+            font-size: 1.1em;
+            margin: 0 0 16px 0;
+            color: #4b5563;
+        }
+        .featured-item.dark .featured-text p {
+            color: #fef08a;
+        }
+        .shop-btn {
+            padding: 12px 32px;
+            border-radius: 12px;
+            font-size: 1.1em;
+            font-weight: 600;
+            border: none;
+            margin-bottom: 8px;
+            margin-top: 8px;
+            background: linear-gradient(90deg, #2563eb, #1e40af);
+            color: #fff;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+        }
+        .shop-btn:hover {
+            background: linear-gradient(90deg, #fef08a, #facc15);
+            color: #1e3a8a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+        }
+        .brand-logo {
+            width: 64px;
+            margin-top: 16px;
+            filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.1));
+            transition: transform 0.3s ease;
+        }
+        .featured-item:hover .brand-logo {
+            transform: scale(1.15) rotate(-4deg);
+        }
+        footer {
+            background: #1f2937;
+            color: #f3f4f6;
+            padding: 48px 24px;
+            border-radius: 0 0 16px 16px;
+        }
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+        .footer-content > div {
+            flex: 1;
+            min-width: 220px;
+        }
+        .footer-content h3 {
+            font-size: 1.25em;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #fef08a;
+        }
+        .footer-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 16px 0;
+            line-height: 1.8;
+        }
+        .footer-content ul li {
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+        .footer-content a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .footer-content a:hover {
+            color: #fef08a;
+        }
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .social-icons img {
+            width: 36px;
+            height: 36px;
+            transition: transform 0.2s ease;
+        }
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+        .qr-codes {
+            display: flex;
+            gap: 24px;
+            margin-top: 16px;
+        }
+        .qr-codes div {
+            text-align: center;
+        }
+        .qr-codes img {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            border: 1px solid #4b5563;
+        }
+        .qr-codes div div {
+            font-size: 0.95em;
+            color: #d1d5db;
+            margin-top: 8px;
+        }
+        @media (max-width: 900px) {
+            .custom-featured-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                padding: 0 16px;
+            }
+            .featured-item {
+                min-height: 300px;
+            }
+            .featured-text {
+                padding: 24px 16px 20px 16px;
+            }
+            .brand-header {
+                font-size: 2em;
+                margin: 32px 0 10px 0;
+            }
+            .brand-subheader {
+                font-size: 1.1em;
+                margin-bottom: 32px;
+            }
+            .brand-logo {
+                width: 56px;
+                margin-top: 12px;
+            }
+            .footer-content {
+                gap: 32px;
+            }
+        }
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: #fff;
+                padding: 16px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                border-radius: 0 0 12px 12px;
+            }
+            nav.active {
+                display: flex;
+            }
+            nav a {
+                padding: 12px;
+                font-size: 1.1em;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            header {
+                padding: 12px 20px;
+            }
+            .logo {
+                font-size: 1.6em;
+            }
+            .featured-text h3 {
+                font-size: 1.5em;
+            }
+            .featured-text p {
+                font-size: 1em;
+            }
+            .shop-btn {
+                padding: 10px 28px;
+                font-size: 1em;
+            }
+        }
+        @media (max-width: 480px) {
+            .custom-featured-grid {
+                padding: 0 12px;
+            }
+            .featured-item {
+                min-height: 260px;
+            }
+            .featured-text {
+                padding: 20px 12px 16px 12px;
+            }
+            .brand-header {
+                font-size: 1.75em;
+                margin: 24px 0 8px 0;
+            }
+            .brand-subheader {
+                font-size: 0.95em;
+                margin-bottom: 24px;
+            }
+            .brand-logo {
+                width: 48px;
+                margin-top: 10px;
+            }
+            .qr-codes img {
+                width: 80px;
+                height: 80px;
+            }
+            .social-icons img {
+                width: 32px;
+                height: 32px;
+            }
+            footer {
+                padding: 32px 16px;
+            }
+            .footer-content h3 {
+                font-size: 1.1em;
+            }
+            .footer-content ul li {
+                font-size: 0.9em;
+            }
+        }
+         .back-btn-fixed {
+            position: fixed;
+            top: 50px;
+            left: 24px;
+            z-index: 1000;
+            padding: 10px 28px;
+            border-radius: 50px;
+            font-size: 1em;
+            font-weight: bold;
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 12px rgba(37,99,235,0.10);
+            transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+        }
+        .back-btn-fixed:hover {
+            background: #1741a6;
+            color: #ffe600;
+            box-shadow: 0 4px 24px rgba(37,99,235,0.18);
+        }
+        @media (max-width: 600px) {
+            .back-btn-fixed {
+                top: 50px;
+                left: 10px;
+                padding: 8px 18px;
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">SmartChoice</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for anything">
+            <button>🔍</button>
+        </div>
+        <button id="menu-toggle" class="menu-toggle" aria-label="Open menu">
+            <img src="navbar.png" alt="Menu" width="32" height="32">
+        </button>
+        <nav id="main-nav">
+            <button id="menu-close" class="menu-close" aria-label="Close menu" style="display:none;position:absolute;top:10px;right:10px;background:none;border:none;font-size:2em;color:#2563eb;cursor:pointer;z-index:1200;">&times;</button>
+            <a href="index.html">Home</a>
+            <a href="more-products.html">Products</a>
+            <a href="about.html">About Us</a>
+            <a href="brand.html">Brand</a>
+            <a href="#">Login</a>
+            <a href="cart.html" class="cart">🛒</a>
+        </nav>
+    </header>
+    <div class="brand-header">Shop by Brand</div>
+    <div class="brand-subheader">Discover the latest models from all top smartphone brands</div>
+    <section class="featured-categories">
+        <div class="custom-featured-grid">
+            <div class="featured-item large samsung-feature"
+                onclick="window.location.href='brand-samsung.html'"
+                style="background-image: url('https://image-us.samsung.com/us/smartphones/galaxy-s25-ultra/images/galaxy-s25-ultra-features-kv.jpg?imbypass=true'); background-size: cover; background-position: center;">
+                <div class="featured-text">
+                    <h3>Samsung Galaxy</h3>
+                    <p>Life opens up with Galaxy AI.</p>
+                    <button class="shop-btn">Shop Now</button>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung Logo" class="brand-logo">
+                </div>
+            </div>
+            <div class="featured-item large apple-feature"
+                onclick="window.location.href='brand-apple.html'"
+                style="background-image: url('Iphone/Apple-iPhone-16-Pro-hero-240909-lp.jpg.og.jpg'); background-size: cover; background-position: center;">
+                <div class="featured-text">
+                    <h3>Apple iPhone</h3>
+                    <p>Designed to be loved.</p>
+                    <button class="shop-btn">Shop Now</button>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple Logo" class="brand-logo">
+                </div>
+            </div>
+            <div class="featured-item pixel-feature"
+                onclick="window.location.href='brand-pixel.html'"
+                style="background-image: url('pixel\ Whats_New.png'); background-size: cover; background-position: center;">
+                <div class="featured-text">
+                    <h3>Google Pixel</h3>
+                    <p>Choose the Pixel you’ll love.</p>
+                    <button class="shop-btn">Shop Now</button>
+                    <img src="Google__G__logo.svg.png" alt="Google Logo" class="brand-logo">
+                </div>
+            </div>
+            <div class="featured-item oppo-feature"
+                onclick="window.location.href='brand-oppo.html'"
+                style="background-image: url('https://www.oppo.com/content/dam/oppo/product-asset-library/find/find-x8-series/en/oppo-find-x8-pro/white-apac/assets/images-kv-bg-k.png'); background-size: cover; background-position: center;">
+                <div class="featured-text">
+                    <h3>Oppo Find X8 Pro</h3>
+                    <p>Discover cutting-edge technology.</p>
+                    <button class="shop-btn">Shop Now</button>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/OPPO_LOGO_2019.svg/1200px-OPPO_LOGO_2019.svg.png" alt="Oppo Logo" class="brand-logo">
+                </div>
+            </div>
+            <div class="featured-item"
+                onclick="window.location.href='brand-vivo.html'"
+                style="background-image: url('imagePhoneModel/Vivo/Vivo-X200-banner.webp'); background-size: cover; background-position: center;">
+                <div class="featured-text">
+                    <h3>Vivo</h3>
+                    <p>Innovate with style.</p>
+                    <button class="shop-btn">Shop Now</button>
+                    <img src="https://1000logos.net/wp-content/uploads/2022/02/Vivo-Logo.png" alt="Vivo Logo" class="brand-logo">
+                </div>
+            </div>
+            <div class="featured-item"
+                onclick="window.location.href='brand-oneplus.html'"
+                style="background-image: url('OnePlus-13-White-1-1200x1200-cropped.jpg'); background-size: cover; background-position: center;">
+                <div class="featured-text">
+                    <h3>OnePlus</h3>
+                    <p>Never settle for less.</p>
+                    <button class="shop-btn">Shop Now</button>
+                    <img src="https://1000logos.net/wp-content/uploads/2022/11/OnePlus-Logo.jpg" alt="OnePlus Logo" class="brand-logo">
+                </div>
+            </div>
+            <div class="featured-item"
+                onclick="window.location.href='brand-xiaomi.html'"
+                style="background-image: url('xiaomi/mibanner.webp'); background-size: cover; background-position: center;">
+                <div class="featured-text">
+                    <h3>Xiaomi</h3>
+                    <p>Innovation for everyone.</p>
+                    <button class="shop-btn">Shop Now</button>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Xiaomi_logo.svg" alt="Xiaomi Logo" class="brand-logo">
+                </div>
+            </div>
+            <div class="featured-item"
+                onclick="window.location.href='brand-huawei.html'"
+                style="background-image: url('https://fdn2.gsmarena.com/vv/pics/huawei/huawei-pura-70-ultra-1.jpg'); background-size: cover; background-position: center;">
+                <div class="featured-text">
+                    <h3>Huawei</h3>
+                    <p>Explore the future.</p>
+                    <button class="shop-btn">Shop Now</button>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Huawei_Standard_logo.svg/1008px-Huawei_Standard_logo.svg.png" alt="Huawei Logo" class="brand-logo">
+                </div>
+            </div>
+            <div class="featured-item"
+                onclick="window.location.href='brand-asus.html'"
+                style="background-image: url('ROG-Phone-9-Wallpapers.webp'); background-size: cover; background-position: center;">
+                <div class="featured-text">
+                    <h3>Asus</h3>
+                    <p>Power for gamers.</p>
+                    <button class="shop-btn">Shop Now</button>
+                    <img src="https://assets.gadgets360cdn.com/pricee/assets/brand/og_asus_logo.png" alt="Asus Logo" class="brand-logo">
+                </div>
+            </div>
+            <div class="featured-item"
+                onclick="window.location.href='brand-sony.html'"
+                style="background-image: url('sonybanner.jpg'); background-size: cover; background-position: center;">
+                <div class="featured-text">
+                    <h3>Sony</h3>
+                    <p>Experience premium quality.</p>
+                    <button class="shop-btn">Shop Now</button>
+                    <img src="https://download.logo.wine/logo/Sony_Mobile/Sony_Mobile-Logo.wine.png" alt="Sony Logo" class="brand-logo">
+                </div>
+            </div>
+            <div class="featured-item"
+                onclick="window.location.href='brand-realme.html'"
+                style="background-image: url('https://fdn2.gsmarena.com/vv/pics/realme/realme-gt-6-1.jpg'); background-size: cover; background-position: center;">
+                <div class="featured-text">
+                    <h3>Realme</h3>
+                    <p>Dare to leap.</p>
+                    <button class="shop-btn">Shop Now</button>
+                    <img src="https://www.rvsolutions.in/wp-content/uploads/2022/06/realme-logo-1.png" alt="Realme Logo" class="brand-logo">
+                </div>
+            </div>
+            <div class="featured-item"
+                onclick="window.location.href='brand-honor.html'"
+                style="background-image: url('honor-magic-6-pro-handson-beach.jpg'); background-size: cover; background-position: center;">
+                <div class="featured-text">
+                    <h3>Honor</h3>
+                    <p>Empower your future.</p>
+                    <button class="shop-btn">Shop Now</button>
+                    <img src="https://download.logo.wine/logo/Honor_(brand)/Honor_(brand)-Logo.wine.png" alt="Honor Logo" class="brand-logo">
+                </div>
+            </div>
+            <div class="featured-item"
+                onclick="window.location.href='brand-infinix.html'"
+                style="background-image: url('https://fdn2.gsmarena.com/vv/pics/infinix/infinix-note-40-pro-plus-5g-1.jpg'); background-size: cover; background-position: center;">
+                <div class="featured-text">
+                    <h3>Infinix</h3>
+                    <p>The future is now.</p>
+                    <button class="shop-btn">Shop Now</button>
+                    <img src="https://seeklogo.com/images/I/infinix-logo-62FA1B616A-seeklogo.com.png" alt="Infinix Logo" class="brand-logo">
+                </div>
+            </div>
+            <div class="featured-item"
+                onclick="window.location.href='brand-tecno.html'"
+                style="background-image: url('https://fdn2.gsmarena.com/vv/pics/tecno/tecno-camon-30-premier-1.jpg'); background-size: cover; background-position: center;">
+                <div class="featured-text">
+                    <h3>Tecno</h3>
+                    <p>Stop at nothing.</p>
+                    <button class="shop-btn">Shop Now</button>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSmmsbghqHUmjMV6CDLA7TGA-BmRqoSZm5eQ&s" alt="Tecno Logo" class="brand-logo">
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <div>
+                <p style="font-size: 1.1em; margin: 0 0 16px 0; font-weight: 600;">
+                    <b>SmartChoice Phone Shop</b>
+                </p>
+                <p style="font-size: 0.95em; margin-bottom: 16px;">
+                    Your trusted destination for new and used phones in Cambodia. Explore sales, buy, or opt for installments with ease.
+                </p>
+                <ul>
+                    <li>Comprehensive listings of top smartphone brands</li>
+                    <li>Compare features, prices, and specs effortlessly</li>
+                    <li>Responsive design for all devices</li>
+                    <li>Secure shopping with a user-friendly cart</li>
+                    <li>Latest models and exclusive deals</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Direct Contact</h3>
+                <ul>
+                    <li>📞 (+855) 097 572 59 08</li>
+                    <li>📞 (+855) 093 610 886</li>
+                    <li>✉️ support@smartchoice.com</li>
+                    <li>✈️ @smartchoicephone</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Find Us on Social</h3>
+                <div class="social-icons">
+                    <a href="#">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png" alt="Facebook">
+                    </a>
+                    <a href="#">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram">
+                    </a>
+                </div>
+                <div>
+                    <a href="about.html">About Us</a>
+                </div>
+                <div>
+                    <a href="#">Privacy Policy</a><br>
+                    <a href="#">Terms and Conditions</a>
+                </div>
+            </div>
+            <div>
+                <h3>Our Shop Location</h3>
+                <div>Sangkat Central, Khan Daun Penh, Phnom Penh</div>
+                <div style="margin: 12px 0;">
+                    <a href="#" style="color: #fef08a;">🗺️ Open Google Map</a>
+                </div>
+                <div class="qr-codes">
+                    <div>
+                        <img src="https://cdn.pixabay.com/photo/2021/12/27/10/50/telegram-icon-6896828_960_720.png" alt="Telegram">
+                        <div>Telegram</div>
+                    </div>
+                    <div>
+                        <img src="https://avatars.githubusercontent.com/u/3717923?s=280&v=4" alt="Google Map">
+                        <div>Google Map</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var menuToggle = document.getElementById('menu-toggle');
+        var mainNav = document.getElementById('main-nav');
+        var menuClose = document.getElementById('menu-close');
+        function openMenu() {
+            mainNav.classList.add('active');
+            if (menuClose) menuClose.style.display = 'block';
+        }
+        function closeMenu() {
+            mainNav.classList.remove('active');
+            if (menuClose) menuClose.style.display = 'none';
+        }
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                openMenu();
+            });
+        }
+        if (menuClose) {
+            menuClose.addEventListener('click', function(e) {
+                e.stopPropagation();
+                closeMenu();
+            });
+        }
+        function updateMenuClose() {
+            if (window.innerWidth > 768) {
+                if (menuClose) menuClose.style.display = 'none';
+                mainNav.classList.remove('active');
+            }
+        }
+        window.addEventListener('resize', updateMenuClose);
+        updateMenuClose();
+    });
+    </script>
+</body>
+</html>

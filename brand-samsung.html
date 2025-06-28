@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Samsung Models - SmartChoice</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .back-btn-fixed {
+            position: fixed;
+            top: 50px;
+            left: 24px;
+            z-index: 1000;
+            padding: 10px 28px;
+            border-radius: 50px;
+            font-size: 1em;
+            font-weight: bold;
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 12px rgba(37,99,235,0.10);
+            transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+        }
+        .back-btn-fixed:hover {
+            background: #1741a6;
+            color: #ffe600;
+            box-shadow: 0 4px 24px rgba(37,99,235,0.18);
+        }
+        @media (max-width: 600px) {
+            .back-btn-fixed {
+                top: 50px;
+                left: 10px;
+                padding: 8px 18px;
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">SmartChoice</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for anything">
+            <button>🔍</button>
+        </div>
+        <button id="menu-toggle" class="menu-toggle" aria-label="Open menu">
+            <img src="navbar.png" alt="Menu" width="32" height="32">
+        </button>
+        <nav id="main-nav">
+            <button id="menu-close" class="menu-close" aria-label="Close menu" style="display:none;position:absolute;top:10px;right:10px;background:none;border:none;font-size:2em;color:#2563eb;cursor:pointer;z-index:1200;">&times;</button>
+            <a href="index.html">Home</a>
+            <a href="more-products.html">Products</a>
+            <a href="about.html">About Us</a>
+            <a href="brand.html">Brand</a>
+            <a href="#">Login</a>
+            <a href="cart.html" class="cart">🛒</a>
+        </nav>
+    </header>
+    <button onclick="history.back()" class="back-btn-fixed">← Back</button>
+    <section class="products">
+        <h2 style="text-align:center;margin:32px 0 18px 0;">Samsung Galaxy Models</h2>
+        <div class="product-series">
+            <h3>Galaxy S Series</h3>
+            <div class="product-list" style="justify-content:center;">
+                <div class="product-card">
+                    <img src="S25Ultra.png" alt="Samsung Galaxy S25 Ultra">
+                    <div class="name">Samsung Galaxy S25 Ultra</div>
+                    <div class="desc">12GB/512GB · Snapdragon 8 Gen 4 / 120Hz</div>
+                    <div class="price">1199$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="Samsung/s24.webp" alt="Samsung Galaxy S24">
+                    <div class="name">Samsung Galaxy S24</div>
+                    <div class="desc">8GB/256GB · Snapdragon 8 Gen 3 / 120Hz</div>
+                    <div class="price">999$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="Samsung/s23ultra.webp" alt="Samsung Galaxy S23">
+                    <div class="name">Samsung Galaxy S23 Ultra</div>
+                    <div class="desc">8GB/256GB · Snapdragon 8 Gen 3 / 120Hz</div>
+                    <div class="price">899$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="Samsung/s22.jpg" alt="Samsung Galaxy S22">
+                    <div class="name">Samsung Galaxy S22</div>
+                    <div class="desc">8GB/128GB · Snapdragon 8 Gen 1 / 120Hz</div>
+                    <div class="price">799$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="Samsung/s21.webp" alt="Samsung Galaxy S21">
+                    <div class="name">Samsung Galaxy S21</div>
+                    <div class="desc">8GB/128GB · Snapdragon 888 / 120Hz</div>
+                    <div class="price">699$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="Samsung/s20.webp" alt="Samsung Galaxy S20">
+                    <div class="name">Samsung Galaxy S20</div>
+                    <div class="desc">8GB/128GB · Snapdragon 865 / 120Hz</div>
+                    <div class="price">599$</div>
+                    <button>add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="product-series">
+            <h3>Galaxy A Series</h3>
+            <div class="product-list" style="justify-content:center;">
+                <div class="product-card">
+                    <img src="Samsung/a55-black.png" alt="Samsung Galaxy A55">
+                    <div class="name">Samsung Galaxy A55</div>
+                    <div class="desc">8GB/256GB · Exynos 1480 / 120Hz</div>
+                    <div class="price">499$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="Samsung/galaxy-a54-5g-amazing-violet-front.jpg" alt="Samsung Galaxy A54">
+                    <div class="name">Samsung Galaxy A54</div>
+                    <div class="desc">8GB/256GB · Exynos 1380 / 120Hz</div>
+                    <div class="price">449$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="Samsung/Samsung-Galaxy-A53-5G-featured-image-packshot-review-Recovered.jpg" alt="Samsung Galaxy A53">
+                    <div class="name">Samsung Galaxy A53</div>
+                    <div class="desc">6GB/128GB · Exynos 1280 / 120Hz</div>
+                    <div class="price">399$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="Samsung/samsung-galaxy-a52-4g.jpg" alt="Samsung Galaxy A52">
+                    <div class="name">Samsung Galaxy A52</div>
+                    <div class="desc">6GB/128GB · Exynos 1280 / 120Hz</div>
+                    <div class="price">349$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="Samsung/samsung-galaxy-a34-5g.jpg" alt="Samsung Galaxy A34">
+                    <div class="name">Samsung Galaxy A34</div>
+                    <div class="desc">6GB/128GB · Exynos 1280 / 120Hz</div>
+                    <div class="price">299$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="Samsung/SM_A245_Galaxy_A24_LTE_Silver_Front_d47ee6359f.webp" alt="Samsung Galaxy A24">
+                    <div class="name">Samsung Galaxy A24</div>
+                    <div class="desc">4GB/128GB · Exynos 850 / 90Hz</div>
+                    <div class="price">249$</div>
+                    <button>add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="product-series">
+            <h3>Galaxy M Series</h3>
+            <div class="product-list" style="justify-content:center;">
+                <div class="product-card">
+                    <img src="Samsung/Samsung-Galaxy-M55-5G.avif" alt="Samsung Galaxy M55">
+                    <div class="name">Samsung Galaxy M55</div>
+                    <div class="desc">Exynos 1380 / 120Hz</div>
+                    <div class="price">349$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="Samsung/galaxy-a54-5g-amazing-violet-front.jpg" alt="Samsung Galaxy M54">
+                    <div class="name">Samsung Galaxy M54</div>
+                    <div class="desc">Exynos 1380 / 120Hz</div>
+                    <div class="price">299$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="Samsung/ae-galaxy-m53-5g.avif" alt="Samsung Galaxy M53">
+                    <div class="name">Samsung Galaxy M53</div>
+                    <div class="desc">Exynos 1380 / 120Hz</div>
+                    <div class="price">259$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="Samsung/galaxy-m52-white.jpg" alt="Samsung Galaxy M52">
+                    <div class="name">Samsung Galaxy M52</div>
+                    <div class="desc">Exynos 1380 / 120Hz</div>
+                    <div class="price">229$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="Samsung/hk-en-galaxy-m34-5g.avif" alt="Samsung Galaxy M34">
+                    <div class="name">Samsung Galaxy M34</div>
+                    <div class="desc">Exynos 1280 / 90Hz</div>
+                    <div class="price">199$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="Samsung/Samsung-Galaxy-M24-green-color-600x600.jpg" alt="Samsung Galaxy M24">
+                    <div class="name">Samsung Galaxy M24</div>
+                    <div class="desc">64G/4G</div>
+                    <div class="price">149$</div>
+                    <button>add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="product-series">
+            <h3>Galaxy Fold Series</h3>
+            <div class="product-list" style="justify-content:center;">
+                <div class="product-card">
+                    <img src="Samsung/samsung_fold5-icyblue-1.png" alt="Samsung Galaxy Z Fold5">
+                    <div class="name">Samsung Galaxy Z Fold5</div>
+                    <div class="desc">512G/12G</div>
+                    <div class="price">1799$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="Samsung/samsung_fold5-icyblue-1.png" alt="Samsung Galaxy Z Fold4">
+                    <div class="name">Samsung Galaxy Z Fold4</div>
+                    <div class="desc">512G/12G</div>
+                    <div class="price">1599$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="Samsung/samsung_fold5-icyblue-1.png" alt="Samsung Galaxy Z Fold3">
+                    <div class="name">Samsung Galaxy Z Fold3</div>
+                    <div class="desc">256G/12G</div>
+                    <div class="price">1399$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="Samsung/samsung_fold5-icyblue-1.png" alt="Samsung Galaxy Z Fold2">
+                    <div class="name">Samsung Galaxy Z Fold2</div>
+                    <div class="desc">256G/12G</div>
+                    <div class="price">1199$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="Samsung/samsung_fold5-icyblue-1.png" alt="Samsung Galaxy Z Flip5">
+                    <div class="name">Samsung Galaxy Z Flip5</div>
+                    <div class="desc">256G/8G</div>
+                    <div class="price">1099$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="Samsung/samsung_fold5-icyblue-1.png" alt="Samsung Galaxy Z Flip4">
+                    <div class="name">Samsung Galaxy Z Flip4</div>
+                    <div class="desc">256G/8G</div>
+                    <div class="price">999$</div>
+                    <button>add to cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="script.js"></script>
+    <div class="nav-overlay"></div>
+    <script src="menu.js"></script>
+    <script>
+    // Show/hide nav and close button for mobile menu
+    document.addEventListener('DOMContentLoaded', function() {
+        var menuToggle = document.getElementById('menu-toggle');
+        var mainNav = document.getElementById('main-nav');
+        var menuClose = document.getElementById('menu-close');
+        function openMenu() {
+            mainNav.classList.add('active');
+            if (menuClose) menuClose.style.display = 'block';
+        }
+        function closeMenu() {
+            mainNav.classList.remove('active');
+            if (menuClose) menuClose.style.display = 'none';
+        }
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                openMenu();
+            });
+        }
+        if (menuClose) {
+            menuClose.addEventListener('click', function(e) {
+                e.stopPropagation();
+                closeMenu();
+            });
+        }
+        // Hide close button on desktop
+        function updateMenuClose() {
+            if (window.innerWidth > 768) {
+                if (menuClose) menuClose.style.display = 'none';
+                mainNav.classList.remove('active');
+            }
+        }
+        window.addEventListener('resize', updateMenuClose);
+        updateMenuClose();
+    });
+    </script>
+    <style>
+    @media (max-width: 768px) {
+        #main-nav {
+            display: none;
+            flex-direction: column;
+            gap: 0;
+            align-items: stretch;
+            width: 48vw;
+            max-width: 120px;
+            background: #fff;
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: auto;
+            height: 100vh;
+            box-shadow: -2px 0 8px rgba(25,118,210,0.10);
+            z-index: 101;
+            border-radius: 0 0 0 8px;
+            padding-top: 28px;
+            padding-bottom: 6px;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        #main-nav.active {
+            display: flex;
+            transform: translateX(0);
+        }
+        #main-nav a {
+            display: block;
+            padding: 7px 0;
+            font-size: 0.85rem;
+            border-radius: 0;
+            border-bottom: 1px solid #f0f0f0;
+            margin: 0 4px;
+            text-align: left;
+        }
+        #main-nav a:last-child {
+            border-bottom: none;
+        }
+        .menu-close {
+            display: block;
+        }
+    }
+    @media (min-width: 769px) {
+        .menu-close {
+            display: none !important;
+        }
+    }
+    </style>
+    <section style="background:#232323; color:#fff; margin:0; padding:0; border-radius:0 0 12px 12px;">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:32px;max-width:1400px;margin:0 auto;padding:36px 18px 24px 18px;">
+            <!-- Box 1: Logo & About -->
+            <div style="flex:2;min-width:260px;">
+                <p style="color:#fff;font-size:1.08em;margin:0 0 12px 0;">
+                    <b>SmartChoice Phone Shop</b> offers Sales | Buy | Installment for all kinds of new and used phones in Cambodia.
+                </p>
+                <ul>
+                    <li>Comprehensive product listings for all top smartphone brands.</li>
+                    <li>Easy comparison of features, prices, and specifications.</li>
+                    <li>Responsive design for a seamless experience on any device.</li>
+                    <li>Secure and convenient shopping with a user-friendly cart.</li>
+                    <li>Up-to-date information on the newest models and best deals.</li>
+                </ul>
+            </div>
+            <!-- Box 2: Direct Contact -->
+            <div style="flex:1;min-width:200px;">
+                <h3 style="color:#fff;font-size:1.15em;margin-bottom:12px;">Direct Contact</h3>
+                <ul style="list-style:none;padding:0;margin:0 0 12px 0;line-height:1.7;">
+                    <li>📞 (+855) 097 572 59 08</li>
+                    <li>📞 (+855) 093 610 886</li>
+                    <li>✉️ support@smartchoice.com</li>
+                    <li>✈️ @smartchoicephone</li>
+                </ul>
+            </div>
+            <!-- Box 3: Social & Policy -->
+            <div style="flex:1;min-width:200px;">
+                <h3 style="color:#fff;font-size:1.15em;margin-bottom:12px;">Find Us on Social</h3>
+                <div style="font-size:1.7em;margin-bottom:10px;display:flex;gap:10px;">
+                    <a href="#" style="display:inline-block;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png" alt="Facebook" style="width:32px;height:32px;">
+                    </a>
+                    <a href="#" style="display:inline-block;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" style="width:32px;height:32px;">
+                    </a>
+                    <!-- Add more social icons as needed -->
+                </div>
+                <div style="margin-bottom:10px;">
+                    <a href="about.html" style="color:#ffe600;text-decoration:none;">About Us</a>
+                </div>
+                <div>
+                    <a href="#" style="color:#fff;text-decoration:none;">PRIVACY POLICY</a><br>
+                    <a href="#" style="color:#fff;text-decoration:none;">TERMS AND CONDITIONS</a>
+                </div>
+            </div>
+            <!-- Box 4: Location & QR -->
+            <div style="flex:1.5;min-width:240px;">
+                <h3 style="color:#fff;font-size:1.15em;margin-bottom:12px;">Our Shop Location</h3>
+                <div style="font-size:1em;margin-bottom:10px;">
+                 Sangkat Central, Khan Daun Penh, Phnom Penh.
+                </div>
+                <div style="margin-bottom:10px;">
+                    <a href="#" style="color:#ffe600;text-decoration:none;">🗺️ Open Google Map</a>
+                </div>
+                <div style="display:flex;gap:18px;">
+                    <div style="text-align:center;">
+                        <img src="https://cdn.pixabay.com/photo/2021/12/27/10/50/telegram-icon-6896828_960_720.png" alt="Telegram" style="width:90px;height:90px;">
+                        <div style="font-size:0.95em;color:#fff;">Telegram</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <img src="https://avatars.githubusercontent.com/u/3717923?s=280&v=4" alt="Google Map" style="width:90px;height:90px;">
+                        <div style="font-size:0.95em;color:#fff;">Google Map</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vivo Models - SmartChoice</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #fff;
+        }
+        .back-btn-fixed {
+            position: fixed;
+            top: 50px;
+            left: 24px;
+            z-index: 1000;
+            padding: 10px 28px;
+            border-radius: 50px;
+            font-size: 1em;
+            font-weight: bold;
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 12px rgba(37,99,235,0.10);
+            transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+        }
+        .back-btn-fixed:hover {
+            background: #1741a6;
+            color: #ffe600;
+            box-shadow: 0 4px 24px rgba(37,99,235,0.18);
+        }
+        @media (max-width: 600px) {
+            .back-btn-fixed {
+                top: 50px;
+                left: 10px;
+                padding: 8px 18px;
+                font-size: 0.95em;
+            }
+        }
+        /* Mobile menu styles */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1100;
+        }
+        .nav-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+        }
+        @media (max-width: 600px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: #fff;
+                width: 250px;
+                border-radius: 0 0 0 12px;
+                box-shadow: -2px 0 12px rgba(0,0,0,0.15);
+            }
+            nav a {
+                padding: 12px 16px;
+                border-bottom: 1px solid #f0f0f0;
+                color: #333;
+            }
+            nav a:hover {
+                background: #f9f9f9;
+            }
+            .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">SmartChoice</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for anything">
+            <button>🔍</button>
+        </div>
+        <button id="menu-toggle" class="menu-toggle" aria-label="Open menu">
+            <img src="navbar.png" alt="Menu" width="32" height="32">
+        </button>
+        <nav id="main-nav">
+            <button id="menu-close" class="menu-close" aria-label="Close menu" style="display:none;position:absolute;top:10px;right:10px;background:none;border:none;font-size:2em;color:#2563eb;cursor:pointer;z-index:1200;">&times;</button>
+            <a href="index.html">Home</a>
+            <a href="more-products.html">Products</a>
+            <a href="about.html">About Us</a>
+            <a href="brand.html">Brand</a>
+            <a href="#">Login</a>
+            <a href="cart.html" class="cart">🛒</a>
+        </nav>
+    </header>
+    <button onclick="history.back()" class="back-btn-fixed">← Back</button>
+    <section class="products">
+        <h2 style="text-align:center;margin:32px 0 18px 0;">Vivo Models</h2>
+        <div class="product-series">
+            <h3>X Series</h3>
+            <div class="product-list" style="justify-content:center;">
+                <div class="product-card">
+                    <img src="X200.png" alt="Vivo X200 Pro">
+                    <div class="name">Vivo X200 Pro</div>
+                    <div class="desc">12GB/512GB · Dimensity 9300 / 120Hz</div>
+                    <div class="price">1099$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="X100.png" alt="Vivo X100">
+                    <div class="name">Vivo X100</div>
+                    <div class="desc">8GB/256GB · Dimensity 9300 / 120Hz</div>
+                    <div class="price">899$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="X200.png" alt="Vivo X200 Pro">
+                    <div class="name">Vivo X200 Pro</div>
+                    <div class="desc">12GB/512GB · Dimensity 9300 / 120Hz</div>
+                    <div class="price">1099$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="X100.png" alt="Vivo X100">
+                    <div class="name">Vivo X100</div>
+                    <div class="desc">8GB/256GB · Dimensity 9300 / 120Hz</div>
+                    <div class="price">899$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="X200.png" alt="Vivo X200 Pro">
+                    <div class="name">Vivo X200 Pro</div>
+                    <div class="desc">12GB/512GB · Dimensity 9300 / 120Hz</div>
+                    <div class="price">1099$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="X100.png" alt="Vivo X100">
+                    <div class="name">Vivo X100</div>
+                    <div class="desc">8GB/256GB · Dimensity 9300 / 120Hz</div>
+                    <div class="price">899$</div>
+                    <button>add to cart</button>
+                </div>
+               
+            </div>
+        </div>
+        <div class="product-series">
+            <h3>V Series</h3>
+            <div class="product-list" style="justify-content:center;">
+                <div class="product-card">
+                    <img src="imagePhoneModel/Vivo/V50.png" alt="Vivo V30">
+                    <div class="name">Vivo V30</div>
+                    <div class="desc">8GB/256GB · Snapdragon 7 Gen 3 / 120Hz</div>
+                    <div class="price">499$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="imagePhoneModel/Vivo/Y29s.png" alt="Vivo V29">
+                    <div class="name">Vivo V29</div>
+                    <div class="desc">6GB/128GB · Snapdragon 778G / 120Hz</div>
+                    <div class="price">399$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="imagePhoneModel/Vivo/V50.png" alt="Vivo V30">
+                    <div class="name">Vivo V30</div>
+                    <div class="desc">8GB/256GB · Snapdragon 7 Gen 3 / 120Hz</div>
+                    <div class="price">499$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="imagePhoneModel/Vivo/Y29s.png" alt="Vivo V29">
+                    <div class="name">Vivo V29</div>
+                    <div class="desc">6GB/128GB · Snapdragon 778G / 120Hz</div>
+                    <div class="price">399$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="imagePhoneModel/Vivo/V50.png" alt="Vivo V30">
+                    <div class="name">Vivo V30</div>
+                    <div class="desc">8GB/256GB · Snapdragon 7 Gen 3 / 120Hz</div>
+                    <div class="price">499$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="imagePhoneModel/Vivo/Y29s.png" alt="Vivo V29">
+                    <div class="name">Vivo V29</div>
+                    <div class="desc">6GB/128GB · Snapdragon 778G / 120Hz</div>
+                    <div class="price">399$</div>
+                    <button>add to cart</button>
+                </div>
+                
+            </div>
+        </div>
+        <div class="product-series">
+            <h3>Y Series</h3>
+            <div class="product-list" style="justify-content:center;">
+                <div class="product-card">
+                    <img src="imagePhoneModel/Vivo/Y29s.png" alt="Vivo Y100">
+                    <div class="name">Vivo Y100</div>
+                    <div class="desc">6GB/128GB · Dimensity 900 / 90Hz</div>
+                    <div class="price">299$</div>
+                    <button>add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="imagePhoneModel/Vivo/Y04.png" alt="Vivo Y78">
+                    <div class="name">Vivo Y78</div>
+                    <div class="desc">4GB/128GB · Snapdragon 680 / 90Hz</div>
+                    <div class="price">199$</div>
+                    <button>add to cart</button>
+                </div>
+                <!-- Add more Y series as needed -->
+            </div>
+        </div>
+    </section>
+    <script src="script.js"></script>
+    <section style="background:#232323; color:#fff; margin:0; padding:0; border-radius:0 0 12px 12px;">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:32px;max-width:1400px;margin:0 auto;padding:36px 18px 24px 18px;">
+            <!-- Box 1: Logo & About -->
+            <div style="flex:2;min-width:260px;">
+                <p style="color:#fff;font-size:1.08em;margin:0 0 12px 0;">
+                    <b>SmartChoice Phone Shop</b> offers Sales | Buy | Installment for all kinds of new and used phones in Cambodia.
+                </p>
+                <ul>
+                    <li>Comprehensive product listings for all top smartphone brands.</li>
+                    <li>Easy comparison of features, prices, and specifications.</li>
+                    <li>Responsive design for a seamless experience on any device.</li>
+                    <li>Secure and convenient shopping with a user-friendly cart.</li>
+                    <li>Up-to-date information on the newest models and best deals.</li>
+                </ul>
+            </div>
+            <!-- Box 2: Direct Contact -->
+            <div style="flex:1;min-width:200px;">
+                <h3 style="color:#fff;font-size:1.15em;margin-bottom:12px;">Direct Contact</h3>
+                <ul style="list-style:none;padding:0;margin:0 0 12px 0;line-height:1.7;">
+                    <li>📞 (+855) 097 572 59 08</li>
+                    <li>📞 (+855) 093 610 886</li>
+                    <li>✉️ support@smartchoice.com</li>
+                    <li>✈️ @smartchoicephone</li>
+                </ul>
+            </div>
+            <!-- Box 3: Social & Policy -->
+            <div style="flex:1;min-width:200px;">
+                <h3 style="color:#fff;font-size:1.15em;margin-bottom:12px;">Find Us on Social</h3>
+                <div style="font-size:1.7em;margin-bottom:10px;display:flex;gap:10px;">
+                    <a href="#" style="display:inline-block;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png" alt="Facebook" style="width:32px;height:32px;">
+                    </a>
+                    <a href="#" style="display:inline-block;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" style="width:32px;height:32px;">
+                    </a>
+                    <!-- Add more social icons as needed -->
+                </div>
+                <div style="margin-bottom:10px;">
+                    <a href="about.html" style="color:#ffe600;text-decoration:none;">About Us</a>
+                </div>
+                <div>
+                    <a href="#" style="color:#fff;text-decoration:none;">PRIVACY POLICY</a><br>
+                    <a href="#" style="color:#fff;text-decoration:none;">TERMS AND CONDITIONS</a>
+                </div>
+            </div>
+            <!-- Box 4: Location & QR -->
+            <div style="flex:1.5;min-width:240px;">
+                <h3 style="color:#fff;font-size:1.15em;margin-bottom:12px;">Our Shop Location</h3>
+                <div style="font-size:1em;margin-bottom:10px;">
+                 Sangkat Central, Khan Daun Penh, Phnom Penh.
+                </div>
+                <div style="margin-bottom:10px;">
+                    <a href="#" style="color:#ffe600;text-decoration:none;">🗺️ Open Google Map</a>
+                </div>
+                <div style="display:flex;gap:18px;">
+                    <div style="text-align:center;">
+                        <img src="https://cdn.pixabay.com/photo/2021/12/27/10/50/telegram-icon-6896828_960_720.png" alt="Telegram" style="width:90px;height:90px;">
+                        <div style="font-size:0.95em;color:#fff;">Telegram</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <img src="https://avatars.githubusercontent.com/u/3717923?s=280&v=4" alt="Google Map" style="width:90px;height:90px;">
+                        <div style="font-size:0.95em;color:#fff;">Google Map</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="nav-overlay"></div>
+    <script src="menu.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var menuToggle = document.getElementById('menu-toggle');
+        var mainNav = document.getElementById('main-nav');
+        var menuClose = document.getElementById('menu-close');
+        function openMenu() {
+            mainNav.classList.add('active');
+            if (menuClose) menuClose.style.display = 'block';
+        }
+        function closeMenu() {
+            mainNav.classList.remove('active');
+            if (menuClose) menuClose.style.display = 'none';
+        }
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                openMenu();
+            });
+        }
+        if (menuClose) {
+            menuClose.addEventListener('click', function(e) {
+                e.stopPropagation();
+                closeMenu();
+            });
+        }
+        function updateMenuClose() {
+            if (window.innerWidth > 768) {
+                if (menuClose) menuClose.style.display = 'none';
+                mainNav.classList.remove('active');
+            }
+        }
+        window.addEventListener('resize', updateMenuClose);
+        updateMenuClose();
+    });
+    </script>
+    <style>
+    @media (max-width: 768px) {
+        #main-nav {
+            display: none;
+            flex-direction: column;
+            gap: 0;
+            align-items: stretch;
+            width: 48vw;
+            max-width: 120px;
+            background: #fff;
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: auto;
+            height: 100vh;
+            box-shadow: -2px 0 8px rgba(25,118,210,0.10);
+            z-index: 101;
+            border-radius: 0 0 0 8px;
+            padding-top: 28px;
+            padding-bottom: 6px;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        #main-nav.active {
+            display: flex;
+            transform: translateX(0);
+        }
+        #main-nav a {
+            display: block;
+            padding: 7px 0;
+            font-size: 0.85rem;
+            border-radius: 0;
+            border-bottom: 1px solid #f0f0f0;
+            margin: 0 4px;
+            text-align: left;
+        }
+        #main-nav a:last-child {
+            border-bottom: none;
+        }
+        .menu-close {
+            display: block;
+        }
+    }
+    @media (min-width: 769px) {
+        .menu-close {
+            display: none !important;
+        }
+    }
+    </style>
+    <section style="background:#232323; color:#fff; margin:0; padding:0; border-radius:0 0 12px 12px;">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:32px;max-width:1400px;margin:0 auto;padding:36px 18px 24px 18px;">
+            <!-- Box 1: Logo & About -->
+            <div style="flex:2;min-width:260px;">
+                <p style="color:#fff;font-size:1.08em;margin:0 0 12px 0;">
+                    <b>SmartChoice Phone Shop</b> offers Sales | Buy | Installment for all kinds of new and used phones in Cambodia.
+                </p>
+                <ul>
+                    <li>Comprehensive product listings for all top smartphone brands.</li>
+                    <li>Easy comparison of features, prices, and specifications.</li>
+                    <li>Responsive design for a seamless experience on any device.</li>
+                    <li>Secure and convenient shopping with a user-friendly cart.</li>
+                    <li>Up-to-date information on the newest models and best deals.</li>
+                </ul>
+            </div>
+            <!-- Box 2: Direct Contact -->
+            <div style="flex:1;min-width:200px;">
+                <h3 style="color:#fff;font-size:1.15em;margin-bottom:12px;">Direct Contact</h3>
+                <ul style="list-style:none;padding:0;margin:0 0 12px 0;line-height:1.7;">
+                    <li>📞 (+855) 097 572 59 08</li>
+                    <li>📞 (+855) 093 610 886</li>
+                    <li>✉️ support@smartchoice.com</li>
+                    <li>✈️ @smartchoicephone</li>
+                </ul>
+            </div>
+            <!-- Box 3: Social & Policy -->
+            <div style="flex:1;min-width:200px;">
+                <h3 style="color:#fff;font-size:1.15em;margin-bottom:12px;">Find Us on Social</h3>
+                <div style="font-size:1.7em;margin-bottom:10px;display:flex;gap:10px;">
+                    <a href="#" style="display:inline-block;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png" alt="Facebook" style="width:32px;height:32px;">
+                    </a>
+                    <a href="#" style="display:inline-block;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" style="width:32px;height:32px;">
+                    </a>
+                    <!-- Add more social icons as needed -->
+                </div>
+                <div style="margin-bottom:10px;">
+                    <a href="about.html" style="color:#ffe600;text-decoration:none;">About Us</a>
+                </div>
+                <div>
+                    <a href="#" style="color:#fff;text-decoration:none;">PRIVACY POLICY</a><br>
+                    <a href="#" style="color:#fff;text-decoration:none;">TERMS AND CONDITIONS</a>
+                </div>
+            </div>
+            <!-- Box 4: Location & QR -->
+            <div style="flex:1.5;min-width:240px;">
+                <h3 style="color:#fff;font-size:1.15em;margin-bottom:12px;">Our Shop Location</h3>
+                <div style="font-size:1em;margin-bottom:10px;">
+                 Sangkat Central, Khan Daun Penh, Phnom Penh.
+                </div>
+                <div style="margin-bottom:10px;">
+                    <a href="#" style="color:#ffe600;text-decoration:none;">🗺️ Open Google Map</a>
+                </div>
+                <div style="display:flex;gap:18px;">
+                    <div style="text-align:center;">
+                        <img src="https://cdn.pixabay.com/photo/2021/12/27/10/50/telegram-icon-6896828_960_720.png" alt="Telegram" style="width:90px;height:90px;">
+                        <div style="font-size:0.95em;color:#fff;">Telegram</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <img src="https://avatars.githubusercontent.com/u/3717923?s=280&v=4" alt="Google Map" style="width:90px;height:90px;">
+                        <div style="font-size:0.95em;color:#fff;">Google Map</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
